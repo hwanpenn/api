@@ -1,0 +1,720 @@
+
+
+post http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/pushMsg/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/pushMsg/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/pushMsg/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+################################################
+
+post http://127.0.0.1:7001/api/recipe HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/recipe HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/recipe/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/recipe/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/recipe/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/recipe HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/recipe HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+################################################
+
+
+post http://127.0.0.1:7001/api/video HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/video HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/video/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/video/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/video/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/video HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/video HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+################################################
+
+post http://127.0.0.1:7001/api/appData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/appData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/appData/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/appData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/appData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/appData HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/appData HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+
+
+################################################
+
+post http://127.0.0.1:7001/api/baseData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/baseData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/baseData/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/baseData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/baseData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/baseData HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/baseData HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+
+
+###
+
+post http://127.0.0.1:7001/api/vipData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/vipData HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/vipData/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/vipData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/vipData/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/vipData HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/vipData HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+
+
+
+
+###
+
+post http://127.0.0.1:7001/api/vip HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/vip HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/vip/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/vip/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/vip/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/vip HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/vip HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+
+
+###
+
+post http://127.0.0.1:7001/api/branch HTTP/1.1
+content-type: application/json
+
+{
+    "access": "1773new111114",
+    "extra": "1773测试111新增114",
+    "name": "1773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/branch HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/branch/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/branch/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/branch/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/branch HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/branch HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+}
+
+
+###
+
+post http://127.0.0.1:7001/api/roleNew HTTP/1.1
+content-type: application/json
+
+{
+    "access": "773new111114",
+    "extra": "773测试111新增114",
+    "name": "773新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/roleNew HTTP/1.1
+content-type: application/json
+
+{
+    "access": "ne72125w6",
+    "extra": "测5试121新2增6",
+    "name": "新增772121角色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/roleNew/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/roleNew/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/roleNew/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/roleNew HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/roleNew HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba5a4690856980949a64d65,5a452a3bab122b16a0231b41"
+}
+
+
+###
+
+post http://127.0.0.1:7001/api/role HTTP/1.1
+content-type: application/json
+
+{
+    "access": "new111114",
+    "extra": "测试111新增114",
+    "name": "新增111角114"
+}
+
+###
+
+post http://127.0.0.1:7001/api/role HTTP/1.1
+content-type: application/json
+
+{
+    "access": "new7",
+    "extra": "测试新7增6",
+    "name": "新增角7色6"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/role/5ba5b0350856980949a64d6f HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/role/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/role/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/role HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/role HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba5a4690856980949a64d65,5a452a3bab122b16a0231b41"
+}
+
+
+
+###
+
+post http://127.0.0.1:7001/api/club HTTP/1.1
+content-type: application/json
+
+{
+    "access": "01new412",
+    "extra": "01测试新增412",
+    "name": "01新增角色412"
+}
+
+###
+
+post http://127.0.0.1:7001/api/club HTTP/1.1
+content-type: application/json
+
+{
+    "name": "南昌俱乐部13",
+    "city": "南昌13",
+    "status":"1"
+}
+
+###
+
+delete http://127.0.0.1:7001/api/club/5ba5c33a79c6300c0d7a6750 HTTP/1.1
+content-type: application/json
+
+###
+
+put http://127.0.0.1:7001/api/club/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+{
+     "name": "南昌俱乐部11",
+      "city": "南昌11",
+      "status":"0"
+}
+
+###
+
+get http://127.0.0.1:7001/api/club/5ba5a4690856980949a64d65 HTTP/1.1
+content-type: application/json
+
+###
+
+get http://127.0.0.1:7001/api/club HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/club HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5ba5a4690856980949a64d65,5a452a3bab122b16a0231b41"
+}
+
+###############################################
+GET http://127.0.0.1:7001/api/user HTTP/1.1
+
+
+###############################################
+GET http://127.0.0.1:7001/api/importXls HTTP/1.1
+
+
+###############################################
+PUT http://127.0.0.1:7001/api/user/resetPsd/5be0956406ab4f0abe7d25ff HTTP/1.1
+
+###
+
+GET http://127.0.0.1:7001 HTTP/1.1
+
+###
+
+POST http://127.0.0.1:7001/api/user/access/usernameLogin HTTP/1.1
+content-type: application/json
+
+{
+    "username": "hwanpenn",
+    "password": "hwanpenn"
+}
+
+###
+
+POST http://127.0.0.1:7001/api/user/access/login HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "18770025870",
+    "password": "1234"
+}
+
+###
+
+POST http://127.0.0.1:7001/api/getMsg HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "0423371794"
+}
+###
+
+POST http://127.0.0.1:7001/api/getMsg HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "18770025870"
+}
+
+###
+
+put http://127.0.0.1:7001/api/userUpdate HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "12311112233",
+    "password": "hwanpenn121",
+    "realName": "修改后"
+}
+
+###
+
+get http://127.0.0.1:7001/api/user/5b7d6fe7fd77180d35faaebb HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "18797813267",
+    "password": "hwanpenn111",
+    "realName": "修改后",
+    "id": "5b7d6fe7fd77180d35faaebb"
+}
+
+###
+
+get http://192.168.21.111:8013/cs/api/robot/queryPageToChatWindow HTTP/1.1
+content-type: application/json
+
+{
+    "pageNo": "1",
+    "pageSize": "5",
+    "robotName": ""
+}

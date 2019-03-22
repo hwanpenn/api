@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="public/animejs/anime.min.js"></script>
+<!--<script type="text/javascript" src="/public/main.6fdf910f.js"></script>-->
+<!--/public/build-->
+<script>
+
+
+    anime({
+        targets: '#domNode .el',
+        translateX: 250
+    });
+    $(document).ready(function(){
+        $("#domNode").click(function(){
+            // alert("点击")
+            var el = document.querySelector('#domNode .el');
+
+            var domNode = anime({
+                targets: el,
+                scale: 2,
+                rotate: '1turn',
+                width: {
+                    value: '*=4',
+                    duration: 1800,
+                    easing: 'easeInOutSine'
+                },
+                height: {
+                    value: '*=4',
+                    duration: 1800,
+                    easing: 'easeInOutSine'
+                },
+            });
+        })
+        $("#btn").click(function(){
+            alert("点击")
+            $('#viewDiv').load('/public/build/index.html');
+        })
+        document.querySelector('#img11').addEventListener('click', function(e) {
+            var el = document.querySelector('#img11');
+
+            var domNode = anime({
+                targets: el,
+                // scale: 2,
+                // rotate: '1turn',
+                width: {
+                    value: '*=1.2',
+                    duration: 200,
+                    easing: 'easeInOutSine'
+                },
+                height: {
+                    value: '*=1.2',
+                    duration: 200,
+                    easing: 'easeInOutSine'
+                },
+            });
+        });
+
+    })
+    function bigImg(x)
+    {
+        var el = document.querySelector('#img11');
+
+        var domNode = anime({
+            targets: x,
+            scale: {
+                value: 1.2,
+                duration: 200,
+                delay: 0,
+                easing: 'easeInOutQuart'
+            },
+        });
+    }
+    function normalImg(x)
+    {
+        var el = document.querySelector('#img11');
+
+        var domNode = anime({
+            targets: x,
+            scale: {
+                value: 1,
+                duration: 200,
+                delay: 0,
+                easing: 'easeInOutQuart'
+            },
+        });
+    }
+    function bigImg1(x)
+    {
+        var el = document.querySelector('#img111');
+        var domNode = anime({
+            targets: x,
+            // scale: 1,
+            // rotate: '1turn',
+            rotate: {
+                value: 360,
+                duration: 1800,
+                easing: 'easeInOutSine'
+            },
+            scale: {
+                value: 1,
+                duration: 1600,
+                delay: 800,
+                easing: 'easeInOutQuart'
+            },
+        });
+    }
+    function normalImg1(x)
+    {
+        var el = document.querySelector('#img111');
+
+        var domNode = anime({
+            targets: x,
+            // scale: 1,
+            // rotate: '1turn',
+            rotate: {
+                value: 720,
+                duration: 1800,
+                easing: 'easeInOutSine'
+            },
+            scale: {
+                value: 1,
+                duration: 1600,
+                delay: 800,
+                easing: 'easeInOutQuart'
+            },
+        });
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .div{
+            color:orange;
+            text-align:center;
+            margin-top: 100px;
+        }
+        .div1{
+            width:100px;
+            height:100px;
+            background:red;
+            animation:myfirst 5s;
+            -webkit-animation:myfirst 5s; /* Safari and Chrome */
+        }
+        .large{
+            width:100px;
+            height:100px;
+            background: #76ff6a;
+        }
+        .square{
+        }
+        @-webkit-keyframes myfirst /* Safari and Chrome */
+        {
+            from {background:red;}
+            to {background:yellow;}
+        }
+    </style>
+</head>
+<body>
+this is home
+<button id="btn">click</button>
+<div id="viewDiv"  ></div>
+<div id="image1" class="div"  >
+    <img id="img11" onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="public/anime.jpeg" alt="Pulpit rock" width="393" height="393"  style="border-radius:25px;box-shadow:4px 4px 30px #444444; border:1px solid #868686">
+    <img id="img111" onmouseover="bigImg1(this)" onmouseout="normalImg1(this)" src="public/anime1.jpeg" alt="Pulpit rock" width="393" height="393"  style="border-radius:25px;box-shadow:4px 4px 30px #444444; border:1px solid #868686">
+    <!--<img id="img11"  src="public/anime.jpeg" alt="Pulpit rock" width="393" height="393"  style="box-shadow:4px 4px 30px #444444; border:1px solid #868686">-->
+</div>
+</body>
+</html>
