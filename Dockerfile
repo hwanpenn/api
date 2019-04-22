@@ -24,7 +24,7 @@ ADD . /10week
 RUN npm install        
 
 # 使端口 80 可供此容器外的环境使用
-EXPOSE 7002
+EXPOSE 7001
 
 # 定义环境变量
 ENV NAME World
