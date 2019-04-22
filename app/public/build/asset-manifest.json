@@ -1,14 +1,18 @@
 {
-  "main.css": "static/css/main.baea4db2.css",
-  "main.css.map": "static/css/main.baea4db2.css.map",
-  "main.js": "static/js/main.bc0ae435.js",
-  "main.js.map": "static/js/main.bc0ae435.js.map",
+  "main.css": "static/css/main.0f01fe9e.css",
+  "main.css.map": "static/css/main.0f01fe9e.css.map",
+  "main.js": "static/js/main.7d20cf3f.js",
+  "main.js.map": "static/js/main.7d20cf3f.js.map",
   "static/media/avatar.jpg": "static/media/avatar.7a6bc100.jpg",
   "static/media/card-1.jpeg": "static/media/card-1.6ee66b2c.jpeg",
   "static/media/card-2.jpeg": "static/media/card-2.ae10829f.jpeg",
   "static/media/card-3.jpeg": "static/media/card-3.4ae4eeff.jpeg",
+  "static/media/homepage02.jpeg": "static/media/homepage02.2a320a74.jpeg",
   "static/media/icon.png": "static/media/icon.b41600f2.png",
-  "static/media/login.jpg": "static/media/login.64ff9025.jpg",
+  "static/media/icon01.png": "static/media/icon01.4fc74542.png",
+  "static/media/login.jpeg": "static/media/login.de3aa6ab.jpeg",
   "static/media/marc.jpg": "static/media/marc.aba54d65.jpg",
-  "static/media/sidebar-2.jpg": "static/media/sidebar-2.d30c9e30.jpg"
+  "static/media/shineyuelogo.png": "static/media/shineyuelogo.ea8c107d.png",
+  "static/media/sidebar-2.jpg": "static/media/sidebar-2.d30c9e30.jpg",
+  "static/media/xiaoyue.png": "static/media/xiaoyue.44b543a9.png"
 }

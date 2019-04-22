@@ -26,7 +26,7 @@ class UserAccessService extends Service {
   async login(payload) {
     const { ctx, service } = this
     const user = await service.user.findByMobile(payload.mobile)
-    const role = await ctx.model.Role.findById(user.role)
+    // const role = await ctx.model.Role.findById(user.role)
     console.log(user)
     // console.log(role)
     if(!user){
@@ -39,7 +39,7 @@ class UserAccessService extends Service {
       ctx.throw(404, 'user password is error')
     }
     // 生成Token令牌
-    return { token: await service.actionToken.apply(user._id), realName:user.realName, role:role, _id:user._id}
+    return { token: await service.actionToken.apply(user._id), realName:user.realName, role:user.role, _id:user._id}
   }
 
   async logout() {

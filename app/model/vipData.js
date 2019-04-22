@@ -1,3 +1,22 @@
+// 胸围
+// 腰围
+// 臀围
+// 大腿围
+// 上臀围
+
+// 力量测试   
+// 仰卧起坐 
+// 平板支撑   
+// 俯卧撑  
+// 深蹲   
+// 波比跳
+
+// 体脂率
+// 身体水分率
+// 肌肉量
+// 基础代谢率
+// 骨重量
+// 内脏脂肪等级
 module.exports = app => {
   const mongoose = app.mongoose
   
@@ -27,7 +46,15 @@ module.exports = app => {
     muscleMass: { type: String, default: '' },
     basalMetabolicRate: { type: String, default: '' },
     boneWeight: { type: String, default: '' },
-    visceralFatGrade: { type: String, default: '' }
+    visceralFatGrade: { type: String, default: '' },
+
+
+    rate: { type: String, default: '' },
+    weight: { type: Number, default: '' },
+    picture: { type: String, default: '' },
+    vipDay: { type: String, default: '' }
+
+    
   })
 
   return mongoose.model('VipData', VipDataSchema)

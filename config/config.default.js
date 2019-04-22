@@ -12,9 +12,10 @@ module.exports = appInfo => {
   config.static = {
     // maxAge: 31536000,
     prefix: '/',
-    // prefix: '/public/',
+    // prefix: '/uploads/',
     dir: path.join(appInfo.baseDir, 'app/public/build')
   }
+ 
   config.view = {
     // root: path.join(appInfo.baseDir, 'app/build'),
     defaultViewEngine: 'nunjucks',
@@ -51,8 +52,8 @@ module.exports = appInfo => {
 
   config.mongoose = {
     // url: 'mongodb://127.0.0.1:27017/10week-mongodb',
-    url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
-    // url: 'mongodb://root:10week@mongo:27017/10week-mongodb?authSource=admin',
+    // url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
+    url: 'mongodb://root:10week@mongo:27017/10week-mongodb?authSource=admin',
     // url: 'mongodb://mongo1:27017/10week-mongodb',
     options: {
       // useNewUrlParser:true,
@@ -78,7 +79,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: [ 'null','http://localhost:63343' ],
+    domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
   }
   config.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',

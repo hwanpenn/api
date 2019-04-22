@@ -30,7 +30,7 @@ class UploadService extends Service {
     if (!attachment) {
       ctx.throw(404, 'attachment not found')
     }else{
-      const target = path.join(this.config.baseDir, 'app/public/uploads', `${attachment._id}${attachment.extname}`)
+      const target = path.join(this.config.baseDir, 'app/public/build/uploads', `${attachment._id}${attachment.extname}`)
       fs.unlinkSync(target)
     }
     return attachment
@@ -77,7 +77,7 @@ class UploadService extends Service {
     let res = []
     let count = 0
     let skip = ((Number(currentPage)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         if (kind) {
           res = await this.ctx.model.Attachment.find({filename: { $regex: search }, extname: { $in: attachmentKind[`${kind}`]} }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()

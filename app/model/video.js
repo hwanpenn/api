@@ -8,7 +8,8 @@ module.exports = app => {
     createdAt: { type: Date, default: Date.now },
     discription: { type: String, default: '' },
     duration: { type: String, default: '' },
-    url: { type: String, default: '' }
+    url: { type: String, default: '' },
+    img: { type: String, default: '' }
   })
 
   return mongoose.model('Video', VideoSchema)

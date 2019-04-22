@@ -42,17 +42,17 @@ class VipDataService extends Service {
   async index(payload) {
 
     const { pageNo, pageSize, isPaging, search,user } = payload
-    // console.log('user----------------')
-    // console.log(user)
+    console.log('user----------------')
+    console.log(user)
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         res = await this.ctx.model.VipData.find({user: user,name: { $regex: search } }).populate('user').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = res.length
       } else {
-        res = await this.ctx.model.VipData.find({user: user,}).populate('user').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+        res = await this.ctx.model.VipData.find({user: user}).populate('user').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = await this.ctx.model.VipData.count({}).exec()
       }
     } else {
@@ -64,7 +64,15 @@ class VipDataService extends Service {
         count = await this.ctx.model.VipData.count({}).exec()
       }
     }
-    // console.log(res)
+    if(user) {
+      res = await this.ctx.model.VipData.find({user: user }).populate('user').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+      count = res.length
+    } else {
+      res = await this.ctx.model.VipData.find().skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+      count = await this.ctx.model.VipData.count({}).exec()
+    }
+    res = await this.ctx.model.VipData.find()
+    console.log(res)
     // 整理数据源 -> Ant Design Pro
     let data = res.map((e,i) => {
       const jsonObject = Object.assign({}, e._doc)

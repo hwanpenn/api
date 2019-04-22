@@ -43,7 +43,7 @@ class ClubService extends Service {
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         if(area){
           res = await this.ctx.model.Club.find({name: { $regex: search },area: area}).populate('area').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()

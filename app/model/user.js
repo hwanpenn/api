@@ -10,6 +10,8 @@
 // 运动量(轻度，中度，重度)
 // 头像
 // 昵称
+// 年龄
+// 性别
 module.exports = app => {
   const mongoose = app.mongoose
   const UserSchema = new mongoose.Schema({
@@ -17,8 +19,13 @@ module.exports = app => {
     password: { type: String, required: true },
     realName: { type: String, required: true },
     city: { type: String },
-    role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
-    club: { type: mongoose.Schema.Types.ObjectId,required: false, ref: 'Club' },
+    role: { type: String,default: 'user' },
+    vip: { type: String , default: 'false' },
+    vipDay: { type: Number , default: 0 },
+    lose: { type: Number , default: 0 },
+    vipCreatedAt: { type: Date , default: '' },
+    picture: { type: String , default: '' },
+
     userCoach: { type: String,required: false, ref: 'User' },
     clubAdmin: { type: String,required: false, ref: 'User' },
     avatar: { type: String, default: 'https://1.gravatar.com/avatar/a3e54af3cb6e157e496ae430aed4f4a3?s=96&d=mm'},
@@ -32,8 +39,11 @@ module.exports = app => {
     gender: { type: String, default: ''},
     height: { type: String, default: ''},
     weight: { type: String, default: ''},
+    age: { type: String, default: ''},
+    sex: { type: String, default: ''},
     exerciseVolume: { type: String, default: ''},
     nickname: { type: String, default: ''}
+    
   })
   return mongoose.model('User', UserSchema)
 }

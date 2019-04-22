@@ -102,7 +102,7 @@ content-type: application/json
 get http://127.0.0.1:7001/api/recipe HTTP/1.1
 content-type: application/json
 
-###
+###http://192.168.155.2:7001/api/recipe
 
 delete http://127.0.0.1:7001/api/recipe HTTP/1.1
 content-type: application/json
@@ -546,13 +546,13 @@ content-type: application/json
 
 ###
 
-put http://127.0.0.1:7001/api/role/5ba5a4690856980949a64d65 HTTP/1.1
+put http://127.0.0.1:7001/api/role/5bd744f6bc952e0cb4e04fcf HTTP/1.1
 content-type: application/json
 
 {
-     "name": "南昌俱乐部11",
-      "city": "南昌11",
-      "status":"0"
+
+      "extra": "超级管理员"
+
 }
 
 ###
@@ -571,7 +571,7 @@ delete http://127.0.0.1:7001/api/role HTTP/1.1
 content-type: application/json
 
 {
-     "id": "5ba5a4690856980949a64d65,5a452a3bab122b16a0231b41"
+     "id": "5bd74c7b0997400d0a5dfd50,5bd74c3d0997400d0a5dfd4f"
 }
 
 
@@ -621,20 +621,76 @@ content-type: application/json
 
 ###
 
-get http://127.0.0.1:7001/api/club HTTP/1.1
+get http://127.0.0.1:7001/api/vipData HTTP/1.1
 content-type: application/json
 
 ###
 
-delete http://127.0.0.1:7001/api/club HTTP/1.1
+delete http://127.0.0.1:7001/api/vipData HTTP/1.1
 content-type: application/json
 
 {
-     "id": "5ba5a4690856980949a64d65,5a452a3bab122b16a0231b41"
+    "id": "5bee4d3eb463ad258122b9d4,5bee4bda878b6e2512ac49ac"
+}
+###############################################
+GET http://127.0.0.1:7001/api/user HTTP/1.1
+
+###
+###############################################
+GET http://127.0.0.1:7001/api/sortbyweight HTTP/1.1
+
+###
+###############################################http://192.168.155.2:7001/api/user
+post http://127.0.0.1:7001/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "extra": "03",
+    "mobile": "18770025803",
+    "password": "1234",
+    "realName": "用户03",
+    "role": "user",
+    "other": "other"
 }
 
 ###############################################
-GET http://127.0.0.1:7001/api/user HTTP/1.1
+post http://127.0.0.1:7001/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "extra": "01",
+    "mobile": "18770025801",
+    "password": "1234",
+    "realName": "用户01",
+    "role": "user",
+    "vip":"true"
+}
+
+###############################################
+post http://127.0.0.1:7001/api/user HTTP/1.1 
+content-type: application/json
+
+{
+    "extra": "70",
+    "mobile": "18770025870",
+    "password": "1234",
+    "realName": "用户70",
+    "role": "admin"
+}
+
+###
+
+get http://127.0.0.1:7001/api/role HTTP/1.1
+content-type: application/json
+
+###
+
+delete http://127.0.0.1:7001/api/user HTTP/1.1
+content-type: application/json
+
+{
+     "id": "5cae0cd1796fc55fa91d4f81,5cae0cf9796fc55fa91d4f82"
+}
 
 
 ###############################################

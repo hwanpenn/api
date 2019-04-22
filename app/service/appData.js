@@ -42,7 +42,7 @@ class AppDataService extends Service {
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         res = await this.ctx.model.AppData.find({name: { $regex: search } }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = res.length

@@ -71,6 +71,16 @@ class RecipeController extends Controller {
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx, res})
   }
+  // 获取所有角色(分页/模糊)
+  async indexbyday() {
+    const { ctx, service } = this
+    // 组装参数
+    const payload = ctx.query
+    // 调用 Service 进行业务处理
+    const res = await service.recipe.indexbyday(payload)
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
+  }
 
   // 删除所选角色(条件id[])
   async removes() {

@@ -11,14 +11,14 @@ class UserController extends Controller {
       // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
     this.UserCreateTransfer = {
-      mobile: {type: 'string', required: true, allowEmpty: false, format: /^[0-9]{11}$/},
-      password: {type: 'password', required: true, allowEmpty: false, min: 4},
-      realName: {type: 'string', required: true, allowEmpty: false, }
+      mobile: {type: 'string', required: false, allowEmpty: false, format: /^[0-9]{11}$/},
+      password: {type: 'password', required: false, allowEmpty: false, min: 4},
+      realName: {type: 'string', required: false, allowEmpty: false, }
       // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
 
     this.UserUpdateTransfer = {
-      mobile: { type: 'string', required: true, allowEmpty: false },
+      mobile: { type: 'string', required: false, allowEmpty: false },
       // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
   }
@@ -100,7 +100,8 @@ class UserController extends Controller {
     const { ctx, service } = this
     // 组装参数
     const { id } = ctx.params
-    
+    console.log('-----------------------------')
+    console.log(id)
     // 调用 Service 进行业务处理
     const res = await service.user.show(id)
     // console.log('-----------------------------')
@@ -112,7 +113,7 @@ class UserController extends Controller {
   // 获取所有用户(分页/模糊)
   async index() {
     
-    // console.log('here------------')
+    console.log('here------------')
     const { ctx, service } = this
     // const password = await ctx.genHash('1234')
     // console.log(password)
@@ -123,10 +124,24 @@ class UserController extends Controller {
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx, res})
   }
+  // 获取所有用户(分页/模糊)
+  async sortbyweight() {
+    
+    console.log('here------------')
+    const { ctx, service } = this
+    // const password = await ctx.genHash('1234')
+    // console.log(password)
+    // 组装参数
+    const payload = ctx.query
+    // 调用 Service 进行业务处理
+    const res = await service.user.sortbyweight(payload)
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
+  }
 
   // 获取所有用户(分页/模糊)
   async index1() {
-    console.log('here------------')
+    // console.log('here------------')
     const { ctx, service } = this
     // 组装参数
     const payload = ctx.query

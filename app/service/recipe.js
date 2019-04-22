@@ -37,12 +37,44 @@ class RecipeService extends Service {
   }
 
   // index======================================================================================================>
+  async indexbyday(payload) {
+    const { pageNo, pageSize, isPaging, search,day } = payload
+    let res = []
+    let count = 0
+    let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
+    if(true) {
+      if(day) {
+        res = await this.ctx.model.Recipe.find({day: { $regex: day } }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+        count = res.length
+      } else {
+        res = await this.ctx.model.Recipe.find({}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+        count = await this.ctx.model.Recipe.count({}).exec()
+      }
+    } else {
+      if(day) {
+        res = await this.ctx.model.Recipe.find({day: { $regex: day } }).sort({ createdAt: -1 }).exec()
+        count = res.length
+      } else {
+        res = await this.ctx.model.Recipe.find({}).sort({ createdAt: -1 }).exec()
+        count = await this.ctx.model.Recipe.count({}).exec()
+      }
+    }
+    // 整理数据源 -> Ant Design Pro
+    let data = res.map((e,i) => {
+      const jsonObject = Object.assign({}, e._doc)
+      jsonObject.key = i
+      jsonObject.createdAt = this.ctx.helper.formatTime(e.createdAt)
+      return jsonObject
+    })
+
+    return { total: count, rows: data, pageSize: Number(pageSize), pageNo: Number(pageNo) }
+  }
   async index(payload) {
     const { pageNo, pageSize, isPaging, search } = payload
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         res = await this.ctx.model.Recipe.find({name: { $regex: search } }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = res.length

@@ -4,21 +4,23 @@ class UserService extends Service {
   // create======================================================================================================>
   async create(payload) {
     const { ctx, service } = this
-    if(payload.role==='admin'){
-      const roleTemp = await this.ctx.service.role.findByName('admin')
-      payload.role=roleTemp._id
-    }else if(payload.role==='coach'){
-      const roleTemp = await this.ctx.service.role.findByName('coach')
-      payload.role=roleTemp._id
-    }else if(payload.role==='user'){
-      const roleTemp = await this.ctx.service.role.findByName('user')
-      payload.role=roleTemp._id
-    }
-    const role = await service.role.show(payload.role)
+
+    // if(payload.role==='admin'){
+    //   // const roleTemp = await this.ctx.service.role.findByName('admin')
+    //   payload.role="admin"
+    // }else if(payload.role==='coach'){
+    //   // const roleTemp = await this.ctx.service.role.findByName('coach')
+    //   // payload.role=roleTemp._id
+    // }else if(payload.role==='user'){
+    //   // const roleTemp = await this.ctx.service.role.findByName('user')
+    //   payload.role="user"
+    // }
+    // const role = await service.role.show(payload.role)
     // console.log(role)
-    if (!role) {
-      ctx.throw(404, 'role is not found')
-    }
+    // if (!role) {
+    //   ctx.throw(404, 'role is not found')
+    // }
+
     payload.password = await this.ctx.genHash(payload.password)
     return ctx.model.User.create(payload)
   }
@@ -69,7 +71,8 @@ class UserService extends Service {
     if (!user) {
       this.ctx.throw(404, 'user not found')
     }
-    return this.ctx.model.User.findById(_id).populate('role').populate('club')
+    return this.ctx.model.User.findById(_id)
+    // return this.ctx.model.User.findById(_id).populate('role').populate('club')
   }
 
   // index======================================================================================================>
@@ -78,7 +81,7 @@ class UserService extends Service {
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
-    if(isPaging) {
+    if(true) {
       if(search) {
         res = await this.ctx.model.User.find({role: '5bd74c3d0997400d0a5dfd4f' }).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = res.length
@@ -110,26 +113,93 @@ class UserService extends Service {
 
   // index======================================================================================================>
   async index(payload) {
-    const { pageNo, pageSize, isPaging, search } = payload
+    const { pageNo, pageSize, isPaging, search,vip } = payload
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
     
-    if(isPaging) {
+    if(true) {
       if(search) {
-        res = await this.ctx.model.User.find({realName: { $regex: search } }).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-        count = res.length
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = res.length
+        }else{
+          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = res.length
+        }
+        
       } else {
-        res = await this.ctx.model.User.find({}).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-        count = await this.ctx.model.User.count({}).exec()
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }else{
+          res = await this.ctx.model.User.find({role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }
+        
       }
     } else {
       if(search) {
-        res = await this.ctx.model.User.find({realName: { $regex: search } }).populate('role').populate('club').sort({ createdAt: -1 }).exec()
-        count = res.length
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).sort({ createdAt: -1 }).exec()
+          count = res.length
+        }else{
+          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).sort({ createdAt: -1 }).exec()
+          count = res.length
+        }
+        
       } else {
-        res = await this.ctx.model.User.find({}).populate('role').populate('club').sort({ createdAt: -1 }).exec()
-        count = await this.ctx.model.User.count({}).exec()
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,role:"user"}).sort({ createdAt: -1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }else{
+          res = await this.ctx.model.User.find({role:"user"}).sort({ createdAt: -1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }
+        
+      }
+    }
+
+    
+    // 整理数据源 -> Ant Design Pro
+    // console.log(res)
+    let data = res.map((e,i) => {
+      const jsonObject = Object.assign({}, e._doc)
+      jsonObject.key = i
+      jsonObject.password = 'this is password'
+      jsonObject.createdAt = this.ctx.helper.formatTime(e.createdAt)
+      return jsonObject
+    })
+    // console.log(data)
+    return { total: count, rows: data, pageSize: Number(pageSize), pageNo: Number(pageNo) }
+  }
+
+   // index======================================================================================================>
+   async sortbyweight(payload) {
+    const { pageNo, pageSize, isPaging, search,vip } = payload
+    let res = []
+    let count = 0
+    let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
+    
+    if(true) {
+      if(search) {
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ lose: 1 }).exec()
+          count = res.length
+        }else{
+          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ lose: 1 }).exec()
+          count = res.length
+        }
+        
+      } else {
+        if(vip){
+          res = await this.ctx.model.User.find({vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ lose: 1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }else{
+          res = await this.ctx.model.User.find({role:"user"}).skip(skip).limit(Number(pageSize)).sort({ lose: 1 }).exec()
+          count = await this.ctx.model.User.count({}).exec()
+        }
+        
       }
     }
 
@@ -155,7 +225,7 @@ class UserService extends Service {
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
     const roleSuper = await this.ctx.service.role.findByName('admin')
     // const userAll = await this.ctx.model.User.find({role:roleSuper._id})
-    if(isPaging) {
+    if(true) {
       if(search) {
         if(club){
           res = await this.ctx.model.User.find({club: club,realName: { $regex: search }, role:roleSuper._id}).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
@@ -214,7 +284,7 @@ class UserService extends Service {
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
     const roleSuper = await this.ctx.service.role.findByName('coach')
     // const userAll = await this.ctx.model.User.find({role:roleSuper._id})
-    if(isPaging) {
+    if(true) {
       if(search) {
         if(club){
           res = await this.ctx.model.User.find({club: club,realName: { $regex: search }, role:roleSuper._id}).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
@@ -273,7 +343,7 @@ class UserService extends Service {
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
     const roleSuper = await this.ctx.service.role.findByName('user')
     // const userAll = await this.ctx.model.User.find({role:roleSuper._id})
-    if(isPaging) {
+    if(true) {
       if(search) {
         if(club){
           res = await this.ctx.model.User.find({club: club,realName: { $regex: search }, role:roleSuper._id}).populate('role').populate('club').skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
