@@ -51,12 +51,10 @@ module.exports = appInfo => {
   }
 
   config.mongoose = {
-    // url: 'mongodb://127.0.0.1:27017/10week-mongodb',
-    // url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
-    // mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-    url: 'mongodb://root:10week@docker_mongodb:27017/10week-mongodb?authSource=admin',
-    // url: 'mongodb://mongo1:27017/10week-mongodb',
+    url: 'mongodb://f8fitness:f8fitness@100%@127.0.0.1:27017/f8fitness?authSource=admin',
+    // url: 'mongodb://root:10week@docker_mongodb:27017/10week-mongodb?authSource=admin',
+
     options: {
       // useNewUrlParser:true,
       useMongoClient: true,
