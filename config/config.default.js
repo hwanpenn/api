@@ -75,13 +75,13 @@ module.exports = appInfo => {
     match: '/jwt', // optional
   }
 
-  config.security = {
-    csrf: {
-      enable: false,
-      ignoreJSON: true
-    },
-    domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
-  }
+  // config.security = {
+  //   csrf: {
+  //     enable: false,
+  //     ignoreJSON: true
+  //   },
+  //   domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
+  // }
   config.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   }
