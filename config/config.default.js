@@ -74,13 +74,20 @@ module.exports = appInfo => {
     enable: true, // default is false
     match: '/jwt', // optional
   }
-  exports.cluster = {
+  config.cluster = {
     listen: {
       port: 7001,
       hostname: '0.0.0.0',
       // path: '/var/run/egg.sock',
     }
   }
+//   config.cluster = {
+//     listen: {
+//       path: '',
+//       port: 7002,
+//       hostname: '0.0.0.0',
+//     }
+// };
 
   // config.security = {
   //   csrf: {
