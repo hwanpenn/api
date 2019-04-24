@@ -140,6 +140,7 @@ module.exports = app => {
   router.get('/api/user', controller.user.index)
   router.get('/api/sortbyweight', controller.user.sortbyweight)
   router.get('/api/user1', controller.user.index1)
+  router.get('/api/test', controller.user.test)
   // router.get('/api/user/admin/all', controller.user.allAdmin)
   router.delete('/api/user', controller.user.removes)
   router.resources('user', '/api/user', controller.user)

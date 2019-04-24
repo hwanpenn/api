@@ -124,6 +124,14 @@ class UserController extends Controller {
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx, res})
   }
+
+  // 获取所有用户(分页/模糊)
+  async test() {
+    const res = {"hwan":"penn"}
+    const { ctx } = this
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
+  }
   // 获取所有用户(分页/模糊)
   async sortbyweight() {
     

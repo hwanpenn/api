@@ -641,15 +641,15 @@ GET http://127.0.0.1:7001/api/sortbyweight HTTP/1.1
 
 ###
 ###############################################http://192.168.155.2:7001/api/user
-post http://127.0.0.1:7001/api/user HTTP/1.1
+post http://f8fitness.com.cn/api/user HTTP/1.1
 content-type: application/json
 
 {
-    "extra": "03",
-    "mobile": "18770025803",
+    "extra": "01",
+    "mobile": "18770025870",
     "password": "1234",
-    "realName": "用户03",
-    "role": "user",
+    "realName": "管理员01",
+    "role": "admin",
     "other": "other"
 }
 
