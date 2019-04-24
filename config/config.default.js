@@ -52,8 +52,8 @@ module.exports = appInfo => {
 
   config.mongoose = {
 
-    // url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
-    url: 'mongodb://f8fitnessusr:f8fitnesspwd@100%@127.0.0.1:27017/f8fitnessdb?authSource=admin',
+    url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
+    // url: 'mongodb://f8fitnessusr:f8fitnesspwd@100%@127.0.0.1:27017/f8fitnessdb?authSource=admin',
     // url: 'mongodb://root:10week@docker_mongodb:27017/10week-mongodb?authSource=admin',
 
     options: {
@@ -73,6 +73,13 @@ module.exports = appInfo => {
     secret: 'Great4-M',
     enable: true, // default is false
     match: '/jwt', // optional
+  }
+  exports.cluster = {
+    listen: {
+      port: 7001,
+      hostname: '0.0.0.0',
+      // path: '/var/run/egg.sock',
+    }
   }
 
   // config.security = {
