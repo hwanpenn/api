@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.0f01fe9e.css",
-  "main.css.map": "static/css/main.0f01fe9e.css.map",
-  "main.js": "static/js/main.7d20cf3f.js",
-  "main.js.map": "static/js/main.7d20cf3f.js.map",
+  "main.css": "static/css/main.0403d678.css",
+  "main.css.map": "static/css/main.0403d678.css.map",
+  "main.js": "static/js/main.9360c9f8.js",
+  "main.js.map": "static/js/main.9360c9f8.js.map",
   "static/media/avatar.jpg": "static/media/avatar.7a6bc100.jpg",
   "static/media/card-1.jpeg": "static/media/card-1.6ee66b2c.jpeg",
   "static/media/card-2.jpeg": "static/media/card-2.ae10829f.jpeg",
@@ -12,7 +12,11 @@
   "static/media/icon01.png": "static/media/icon01.4fc74542.png",
   "static/media/login.jpeg": "static/media/login.de3aa6ab.jpeg",
   "static/media/marc.jpg": "static/media/marc.aba54d65.jpg",
+  "static/media/poster-big-buck-bunny.png": "static/media/poster-big-buck-bunny.f00f2b7d.png",
+  "static/media/poster-sintel-trailer.png": "static/media/poster-sintel-trailer.8a3f5d49.png",
   "static/media/shineyuelogo.png": "static/media/shineyuelogo.ea8c107d.png",
   "static/media/sidebar-2.jpg": "static/media/sidebar-2.d30c9e30.jpg",
+  "static/media/sintel-en.vtt": "static/media/sintel-en.3f581f96.vtt",
+  "static/media/sintel-es.vtt": "static/media/sintel-es.691c220d.vtt",
   "static/media/xiaoyue.png": "static/media/xiaoyue.44b543a9.png"
 }

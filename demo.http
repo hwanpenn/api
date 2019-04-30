@@ -43,18 +43,24 @@ content-type: application/json
 
 ###
 
-get http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+get http://127.0.0.1:7001/api/user HTTP/1.1
 content-type: application/json
 
 ###
 
-delete http://127.0.0.1:7001/api/pushMsg HTTP/1.1
+delete http://127.0.0.1:7001/api/recipe HTTP/1.1
 content-type: application/json
 
 {
-     "id": "5ba9b0928c1a1c0d16acb77e,5ba9b08a8c1a1c0d16acb77d"
+     "id": "5bedd188f088851eb7c180e6,5bedd0c2f088851eb7c180e5"
 }
 ################################################
+###
+
+get http://127.0.0.1:7001/api/recipe HTTP/1.1
+content-type: application/json
+
+###
 
 post http://127.0.0.1:7001/api/recipe HTTP/1.1
 content-type: application/json
