@@ -633,9 +633,19 @@ content-type: application/json
     "id": "5bee4d3eb463ad258122b9d4,5bee4bda878b6e2512ac49ac"
 }
 ###############################################
+GET http://f8fitness.com.cn/test HTTP/1.1
+
+
+###############################################
 GET http://127.0.0.1:7001/api/user HTTP/1.1
 
 ###
+
+###############################################
+GET http://f8fitness.com.cn/api/user HTTP/1.1
+
+###
+
 ###############################################
 GET http://127.0.0.1:7001/api/sortbyweight HTTP/1.1
 
@@ -652,7 +662,8 @@ content-type: application/json
     "role": "admin",
     "other": "other"
 }
-
+###
+db.users.insert({"role": "admin", "mobile": "18770025870","password": "$2a$10$ctKDfuP/IfJNMzk5IpYeUe64lS8MWiPosS1Y0.X/8cR6nF0EkzQ8C","realName": "管理员01” })
 ###############################################
 post http://127.0.0.1:7001/api/user HTTP/1.1
 content-type: application/json

@@ -1,14 +1,16 @@
 
 const path = require('path')
 module.exports = appInfo => {
+
   const config = exports = {}
-  // config.cluster = {
-  //   listen: {
-  //     port: 7001,
-  //     hostname: 'localhost',
-  //     // path: '/var/run/egg.sock',
-  //   }
-  // }
+
+  config.cluster = {
+    listen: {
+      port: 7001,
+      hostname: '127.0.0.1',
+      // path: '/var/run/egg.sock',
+    }
+  }
   config.static = {
     // maxAge: 31536000,
     prefix: '/',
@@ -34,14 +36,6 @@ module.exports = appInfo => {
   // config.errorHandler = {}
   //   match: '/api',
   // }
-
-  // config.security = {
-  //   csrf: {
-  //     enable: false,
-  //   },
-  //   domainWhiteList: [ 'http://localhost:8000' ],
-  // }
-
   config.multipart = {
     fileExtensions: [ '.apk', '.pptx', '.docx', '.csv', '.doc', '.ppt', '.pdf', '.pages', '.wav', '.mov' ], // 增加对 .apk 扩展名的支持
   },
@@ -51,11 +45,9 @@ module.exports = appInfo => {
   }
 
   config.mongoose = {
-
     // url: 'mongodb://root:10week@127.0.0.1:27017/10week-mongodb?authSource=admin',
-    url: 'mongodb://f8fitnessusr:f8fitnesspwd@100%@127.0.0.1:27017/f8fitnessdb?authSource=admin',
+    url: 'mongodb://f8fitnessusr:f8fitnesspwd@127.0.0.1:27017/f8fitnessdb?authSource=admin',
     // url: 'mongodb://root:10week@docker_mongodb:27017/10week-mongodb?authSource=admin',
-
     options: {
       // useNewUrlParser:true,
       useMongoClient: true,
@@ -63,10 +55,6 @@ module.exports = appInfo => {
       reconnectTries: Number.MAX_VALUE,
       bufferMaxEntries: 0,
     },
-    // client: {
-    //   url: 'mongodb://root:10week@mongo:27017/10week-mongodb?authSource=admin',
-    //   options: {},
-    // },
   }
 
   config.jwt = {
@@ -74,28 +62,14 @@ module.exports = appInfo => {
     enable: true, // default is false
     match: '/jwt', // optional
   }
-  config.cluster = {
-    listen: {
-      port: 7001,
-      hostname: '0.0.0.0',
-      // path: '/var/run/egg.sock',
-    }
-  }
-//   config.cluster = {
-//     listen: {
-//       path: '',
-//       port: 7002,
-//       hostname: '0.0.0.0',
-//     }
-// };
 
-  // config.security = {
-  //   csrf: {
-  //     enable: false,
-  //     ignoreJSON: true
-  //   },
-  //   domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
-  // }
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
+  }
   config.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   }
