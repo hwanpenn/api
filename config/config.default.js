@@ -1,16 +1,16 @@
 
 const path = require('path')
 module.exports = appInfo => {
-
   const config = exports = {}
-
+  
   config.cluster = {
-    listen: {
-      port: 7001,
-      hostname: '127.0.0.1',
-      // path: '/var/run/egg.sock',
-    }
-  }
+     listen: {
+       port: 7001,
+       hostname: '0.0.0.0',
+       // path: '/var/run/egg.sock',
+     }
+   }
+
   config.static = {
     // maxAge: 31536000,
     prefix: '/',
@@ -36,6 +36,7 @@ module.exports = appInfo => {
   // config.errorHandler = {}
   //   match: '/api',
   // }
+
   config.multipart = {
     fileExtensions: [ '.apk', '.pptx', '.docx', '.csv', '.doc', '.ppt', '.pdf', '.pages', '.wav', '.mov' ], // 增加对 .apk 扩展名的支持
   },
