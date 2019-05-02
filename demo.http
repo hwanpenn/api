@@ -552,12 +552,12 @@ content-type: application/json
 
 ###
 
-put http://127.0.0.1:7001/api/role/5bd744f6bc952e0cb4e04fcf HTTP/1.1
+put http://127.0.0.1:7001/api/user/5cae0b07f45c1a5f615dc557 HTTP/1.1
 content-type: application/json
 
 {
 
-      "extra": "超级管理员"
+      "vipDay": 0
 
 }
 
