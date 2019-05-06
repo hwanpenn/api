@@ -47,6 +47,12 @@ get http://127.0.0.1:7001/api/user HTTP/1.1
 content-type: application/json
 
 ###
+###
+
+get http://127.0.0.1:7001/api/indexcoach HTTP/1.1
+content-type: application/json
+
+###
 
 delete http://127.0.0.1:7001/api/recipe HTTP/1.1
 content-type: application/json
@@ -729,6 +735,16 @@ content-type: application/json
 {
     "username": "hwanpenn",
     "password": "hwanpenn"
+}
+
+###
+
+POST http://f8fitness.com.cn/api/user/access/login HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "18770025870",
+    "password": "1234"
 }
 
 ###

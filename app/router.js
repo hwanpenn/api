@@ -138,6 +138,7 @@ module.exports = app => {
   router.get('/api/importXls', controller.user.importXls)
   router.put('/api/userUpdate', controller.user.updateByMobile)
   router.get('/api/user', controller.user.index)
+  router.get('/api/indexcoach', controller.user.indexCoach)
   router.get('/api/sortbyweight', controller.user.sortbyweight)
   router.get('/api/user1', controller.user.index1)
   router.get('/api/test', controller.user.test)

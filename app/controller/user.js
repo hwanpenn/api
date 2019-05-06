@@ -125,6 +125,21 @@ class UserController extends Controller {
     ctx.helper.success({ctx, res})
   }
 
+  // 获取所有教练用户(分页/模糊)
+  async indexCoach() {
+    
+    console.log('indexcoach here------------')
+    const { ctx, service } = this
+    // const password = await ctx.genHash('1234')
+    // console.log(password)
+    // 组装参数
+    const payload = ctx.query
+    // 调用 Service 进行业务处理
+    const res = await service.user.indexCoach(payload)
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ctx, res})
+  }
+
   // 获取所有用户(分页/模糊)
   async test() {
     const res = {"hwan":"penn"}

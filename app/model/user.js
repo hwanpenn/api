@@ -27,6 +27,8 @@ module.exports = app => {
     picture: { type: String , default: '' },
 
     userCoach: { type: String,required: false, ref: 'User' },
+    coachId: { type: String,required: false, default: '' },
+    coachName: { type: String,required: false, default: '' },
     clubAdmin: { type: String,required: false, ref: 'User' },
     avatar: { type: String, default: 'https://1.gravatar.com/avatar/a3e54af3cb6e157e496ae430aed4f4a3?s=96&d=mm'},
     extra: { type: mongoose.Schema.Types.Mixed },

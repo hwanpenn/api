@@ -20,7 +20,7 @@ class UserService extends Service {
     // if (!role) {
     //   ctx.throw(404, 'role is not found')
     // }
-
+    console.log(payload)
     payload.password = await this.ctx.genHash(payload.password)
     return ctx.model.User.create(payload)
   }
@@ -113,6 +113,74 @@ class UserService extends Service {
 
   // index======================================================================================================>
   async index(payload) {
+    const { pageNo, pageSize, isPaging, search,vip ,coachName} = payload
+    console.log(payload)
+    let res = []
+    let count = 0
+    let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
+    
+    if(true) {
+      if(search) {
+        if(vip){
+          if(coachName){
+            res = await this.ctx.model.User.find({coachName:coachName,vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }else{
+            res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }
+        }else{
+          if(coachName){
+            res = await this.ctx.model.User.find({coachName:coachName,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }else{
+            res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }
+          
+        }
+        
+      } else {
+        if(vip){
+          if(coachName){
+            res = await this.ctx.model.User.find({coachName:coachName,vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }else{
+            res = await this.ctx.model.User.find({vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }
+          
+        }else{
+          if(coachName){
+            res = await this.ctx.model.User.find({coachName:coachName,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }else{
+            res = await this.ctx.model.User.find({role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+            count = res.length
+          }
+          
+        }
+        
+      }
+    }
+
+    
+    // 整理数据源 -> Ant Design Pro
+    console.log(res)
+    let data = res.map((e,i) => {
+      const jsonObject = Object.assign({}, e._doc)
+      jsonObject.key = i
+      jsonObject.password = 'this is password'
+      jsonObject.createdAt = this.ctx.helper.formatTime(e.createdAt)
+      return jsonObject
+    })
+    // console.log(data)
+    return { total: count, rows: data, pageSize: Number(pageSize), pageNo: Number(pageNo) }
+  }
+
+
+   // indexCoach ======================================================================================================>
+   async indexCoach(payload) {
     const { pageNo, pageSize, isPaging, search,vip } = payload
     let res = []
     let count = 0
@@ -121,40 +189,20 @@ class UserService extends Service {
     if(true) {
       if(search) {
         if(vip){
-          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"coach"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
           count = res.length
         }else{
-          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-          count = res.length
-        }
-        
-      } else {
-        if(vip){
-          res = await this.ctx.model.User.find({vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.User.count({}).exec()
-        }else{
-          res = await this.ctx.model.User.find({role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.User.count({}).exec()
-        }
-        
-      }
-    } else {
-      if(search) {
-        if(vip){
-          res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).sort({ createdAt: -1 }).exec()
-          count = res.length
-        }else{
-          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).sort({ createdAt: -1 }).exec()
+          res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"coach"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
           count = res.length
         }
         
       } else {
         if(vip){
-          res = await this.ctx.model.User.find({vip:vip,role:"user"}).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.User.count({}).exec()
+          res = await this.ctx.model.User.find({vip:vip,role:"coach"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = res.length
         }else{
-          res = await this.ctx.model.User.find({role:"user"}).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.User.count({}).exec()
+          res = await this.ctx.model.User.find({role:"coach"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+          count = res.length
         }
         
       }
