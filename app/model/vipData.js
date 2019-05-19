@@ -27,6 +27,7 @@ module.exports = app => {
     extra: { type: mongoose.Schema.Types.Mixed },
     createdAt: { type: Date, default: Date.now },
     mark: { type: String, default: '' },
+    markTime: { type: String, default: '' },
 
     bust: { type: String, default: '' },
     waist: { type: String, default: '' },

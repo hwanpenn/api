@@ -22,6 +22,7 @@ module.exports = app => {
     role: { type: String,default: 'user' },
     vip: { type: String , default: 'false' },
     vipDay: { type: Number , default: 0 },
+    markTime: { type: String , default: '2018-11-11' },
     lose: { type: Number , default: 0 },
     vipCreatedAt: { type: Date , default: '' },
     picture: { type: String , default: '' },
@@ -34,7 +35,7 @@ module.exports = app => {
     extra: { type: mongoose.Schema.Types.Mixed },
     createdAt: { type: Date, default: Date.now },
 
-    birth: { type: Date, default: ''},
+    birth: { type: String, default: ''},
     email: { type: String, default: ''},
     income: { type: String, default: ''},
     address: { type: String, default: ''},
