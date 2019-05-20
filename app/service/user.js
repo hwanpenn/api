@@ -127,7 +127,7 @@ class UserService extends Service {
             count = res.length
           }else{
             res = await this.ctx.model.User.find({vip:vip,realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-            count = res.length
+            count = await this.ctx.model.User.count({}).exec()
           }
         }else{
           if(coachName){
@@ -135,7 +135,7 @@ class UserService extends Service {
             count = res.length
           }else{
             res = await this.ctx.model.User.find({realName: { $regex: search } ,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-            count = res.length
+            count = await this.ctx.model.User.count({}).exec()
           }
           
         }
@@ -147,7 +147,7 @@ class UserService extends Service {
             count = res.length
           }else{
             res = await this.ctx.model.User.find({vip:vip,role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-            count = res.length
+            count = await this.ctx.model.User.count({}).exec()
           }
           
         }else{
@@ -156,7 +156,7 @@ class UserService extends Service {
             count = res.length
           }else{
             res = await this.ctx.model.User.find({role:"user"}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
-            count = res.length
+            count = await this.ctx.model.User.count({}).exec()
           }
           
         }
