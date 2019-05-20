@@ -5,13 +5,13 @@ class UserController extends Controller {
     super(ctx)
 
     this.UserUpdateTransferByMobile = {
-      mobile: {type: 'string', required: true, allowEmpty: false, format: /^[0-9]{11}$/},
+      mobile: {type: 'string', required: true, allowEmpty: false, format: /^[0-9]{8,12}$/},
       password: {type: 'password', required: true, allowEmpty: false, min: 6},
       // realName: {type: 'string', required: true, allowEmpty: false, }
       // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
     this.UserCreateTransfer = {
-      mobile: {type: 'string', required: false, allowEmpty: false, format: /^[0-9]{11}$/},
+      mobile: {type: 'string', required: false, allowEmpty: false, format: /^[0-9]{8,12}$/},
       password: {type: 'password', required: false, allowEmpty: false, min: 4},
       realName: {type: 'string', required: false, allowEmpty: false, }
       // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
