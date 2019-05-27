@@ -49,7 +49,7 @@ class msgService extends Service {
     //阿里
     smsClient.sendSMS({
       PhoneNumbers: mobile,
-      SignName: '黄鹏',
+      SignName: '十周挑战APP',
       TemplateCode: 'SMS_164509157',
       TemplateParam: '{"code":"'+rnd+'"}',
     }).then(function(res) {
