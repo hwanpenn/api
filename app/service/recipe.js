@@ -76,7 +76,7 @@ class RecipeService extends Service {
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
     if(true) {
       if(search) {
-        res = await this.ctx.model.Recipe.find({name: { $regex: search } }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
+        res = await this.ctx.model.Recipe.find({name: { $regex: JSON.parse(search).search } }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()
         count = res.length
       } else {
         res = await this.ctx.model.Recipe.find({}).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 }).exec()

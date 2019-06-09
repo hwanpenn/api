@@ -39,9 +39,7 @@ class NewsService extends Service {
   // index======================================================================================================>
   async index(payload) {
     const { pageNo, pageSize, isPaging, search } = payload
-    console.log("pageNo-----------------------------------")
-    console.log(pageNo)
-    console.log(pageSize)
+    
     let res = []
     let count = 0
     let skip = ((Number(pageNo)) - 1) * Number(pageSize || 10)
