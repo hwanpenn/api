@@ -7,19 +7,15 @@ class UserController extends Controller {
     this.UserUpdateTransferByMobile = {
       mobile: {type: 'string', required: true, allowEmpty: false, format: /^[0-9]{8,12}$/},
       password: {type: 'password', required: true, allowEmpty: false, min: 6},
-      // realName: {type: 'string', required: true, allowEmpty: false, }
-      // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
     this.UserCreateTransfer = {
       mobile: {type: 'string', required: false, allowEmpty: false, format: /^[0-9]{8,12}$/},
       password: {type: 'password', required: false, allowEmpty: false, min: 4},
       realName: {type: 'string', required: false, allowEmpty: false, }
-      // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
 
     this.UserUpdateTransfer = {
       mobile: { type: 'string', required: false, allowEmpty: false },
-      // realName: {type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/}
     }
   }
 
@@ -30,9 +26,6 @@ class UserController extends Controller {
     ctx.validate(this.UserCreateTransfer)
     // 组装参数
     const payload = ctx.request.body || {}
-    // console.log('7777777777')
-    // console.log(payload)
-    // 调用 Service 进行业务处理
     const res = await service.user.create(payload)
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx, res})
@@ -45,8 +38,6 @@ class UserController extends Controller {
     ctx.validate(this.UserCreateTransfer)
     // 组装参数
     const payload = ctx.request.body || {}
-    // console.log('7777777777')
-    // console.log(payload)
     // 调用 Service 进行业务处理
     const res = await service.user.createAdmin(payload)
     // 设置响应内容和响应状态码
@@ -73,11 +64,7 @@ class UserController extends Controller {
     // const { mobile } = ctx.params
     const payload = ctx.request.body || {}
     // 调用 Service 进行业务处理
-    // console.log('拿到的数据')
-    // console.log(mobile)
-    // console.log(payload)
     await service.user.updatebyMobile(payload)
-    // console.log(result)
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx})
   }
@@ -100,12 +87,8 @@ class UserController extends Controller {
     const { ctx, service } = this
     // 组装参数
     const { id } = ctx.params
-    console.log('-----------------------------')
-    console.log(id)
     // 调用 Service 进行业务处理
     const res = await service.user.show(id)
-    // console.log('-----------------------------')
-    // console.log(res)
     // 设置响应内容和响应状态码
     ctx.helper.success({ctx, res})
   }
@@ -113,10 +96,7 @@ class UserController extends Controller {
   // 获取所有用户(分页/模糊)
   async index() {
     
-    console.log('here------------')
     const { ctx, service } = this
-    // const password = await ctx.genHash('1234')
-    // console.log(password)
     // 组装参数
     const payload = ctx.query
     // 调用 Service 进行业务处理
@@ -125,13 +105,9 @@ class UserController extends Controller {
     ctx.helper.success({ctx, res})
   }
 
-  // 获取所有教练用户(分页/模糊)
   async indexCoach() {
     
-    console.log('indexcoach here------------')
     const { ctx, service } = this
-    // const password = await ctx.genHash('1234')
-    // console.log(password)
     // 组装参数
     const payload = ctx.query
     // 调用 Service 进行业务处理
@@ -149,11 +125,7 @@ class UserController extends Controller {
   }
   // 获取所有用户(分页/模糊)
   async sortbyweight() {
-    
-    console.log('here------------')
     const { ctx, service } = this
-    // const password = await ctx.genHash('1234')
-    // console.log(password)
     // 组装参数
     const payload = ctx.query
     // 调用 Service 进行业务处理
@@ -164,7 +136,6 @@ class UserController extends Controller {
 
   // 获取所有用户(分页/模糊)
   async index1() {
-    // console.log('here------------')
     const { ctx, service } = this
     // 组装参数
     const payload = ctx.query
@@ -176,7 +147,6 @@ class UserController extends Controller {
 
   // 获取所有管理员(分页/模糊)
   async allAdmin() {
-    // console.log('here------------')
     const { ctx, service } = this
     // 组装参数
     const payload = ctx.query
@@ -188,7 +158,6 @@ class UserController extends Controller {
 
   // 获取所有教练(分页/模糊)
   async allCoach() {
-    // console.log('here------------')
     const { ctx, service } = this
     // 组装参数
     const payload = ctx.query
@@ -200,7 +169,6 @@ class UserController extends Controller {
 
   // 获取所有教练(分页/模糊)
   async allUser() {
-    // console.log('here------------')
     const { ctx, service } = this
     // 组装参数
     const payload = ctx.query
@@ -225,11 +193,9 @@ class UserController extends Controller {
 
   // 重置单个用户
   async resetPsd() {
-    // console.log('resetPsd------------resetPsd-------------')
     const { ctx, service } = this
     // 校验参数
     const { id } = ctx.params
-    // console.log(id)
     // 调用 Service 进行业务处理
     await service.user.resetPsd(id)
     // 设置响应内容和响应状态码
@@ -271,31 +237,17 @@ class UserController extends Controller {
         ]
       }]
     // 写xlsx
-    console.log('开始读写')
     var buffer = xlsx.build(data)
     fs.writeFile('./resut.xls', buffer, function (err)
     {
       if (err)
         throw err
-      console.log('Write to xls has finished')
-      
-      // 读xlsx
-      // var obj = xlsx.parse('./' + 'resut.xls')
+      xlsx.parse('./' + 'resut.xls')
       var obj1 = xlsx.parse('/Users/hwanpenn/Documents/10week/10week-api/test.xlsx')
       // console.log(JSON.stringify(obj))
-      console.log(JSON.stringify(obj1))
     }
     )
     ctx.helper.success({ctx})
-    // // console.log('resetPsd------------resetPsd-------------')
-    // const { ctx, service } = this
-    // // 校验参数
-    // const { id } = ctx.params
-    // // console.log(id)
-    // // 调用 Service 进行业务处理
-    // await service.user.resetPsd(id)
-    // // 设置响应内容和响应状态码
-    // ctx.helper.success({ctx})
   }
   // 导出xls
   async exportXls() {

@@ -1,13 +1,10 @@
 const Service = require('egg').Service
 
 class appInfoService extends Service {
-  // create======================================================================================================>
   async create(payload) {
-    // console.log('这里是role-----------service')
     return this.ctx.model.appInfo.create(payload) 
   }
 
-  // destroy======================================================================================================>  
   async destroy(_id) {
     const { ctx, service } = this
     const appInfo = await ctx.service.appInfo.find(_id)
@@ -17,7 +14,6 @@ class appInfoService extends Service {
     return ctx.model.appInfo.findByIdAndRemove(_id)
   }
 
-  // update======================================================================================================>
   async update(_id, payload) {
     const { ctx, service } = this
     const appInfo = await ctx.service.appInfo.find(_id)
@@ -27,7 +23,6 @@ class appInfoService extends Service {
     return ctx.model.appInfo.findByIdAndUpdate(_id, payload)
   }
 
-  // show======================================================================================================>
   async show(_id) {
     const appInfo = await this.ctx.service.appInfo.find(_id)
     if (!appInfo) {
@@ -36,7 +31,6 @@ class appInfoService extends Service {
     return this.ctx.model.appInfo.findById(_id)
   }
 
-  // index======================================================================================================>
   async index(payload) {
     const { pageNo, pageSize, isPaging, search } = payload
     let res = []
@@ -51,15 +45,7 @@ class appInfoService extends Service {
         count = await this.ctx.model.appInfo.count({}).exec()
       }
     } else {
-      if(search) {
-        res = await this.ctx.model.appInfo.find({name: { $regex: search } }).sort({ createdAt: -1 }).exec()
-        count = res.length
-      } else {
-        res = await this.ctx.model.appInfo.find({}).sort({ createdAt: -1 }).exec()
-        count = await this.ctx.model.appInfo.count({}).exec()
-      }
     }
-    // 整理数据源 -> Ant Design Pro
     let data = res.map((e,i) => {
       const jsonObject = Object.assign({}, e._doc)
       jsonObject.key = i
@@ -70,12 +56,10 @@ class appInfoService extends Service {
     return { total: count, rows: data, pageSize: Number(pageSize), pageNo: Number(pageNo) }
   }
 
-  // removes======================================================================================================>
   async removes(values) {
     return this.ctx.model.appInfo.remove({ _id: { $in: values } })
   }
 
-  // Commons======================================================================================================>
   async find(id) {
     return this.ctx.model.appInfo.findById(id)
   }

@@ -1,13 +1,10 @@
 const Service = require('egg').Service
 
 class RecipeService extends Service {
-  // create======================================================================================================>
   async create(payload) {
-    // console.log('这里是role-----------service')
     return this.ctx.model.Recipe.create(payload) 
   }
 
-  // destroy======================================================================================================>  
   async destroy(_id) {
     const { ctx, service } = this
     const recipe = await ctx.service.recipe.find(_id)
@@ -17,7 +14,6 @@ class RecipeService extends Service {
     return ctx.model.Recipe.findByIdAndRemove(_id)
   }
 
-  // update======================================================================================================>
   async update(_id, payload) {
     const { ctx, service } = this
     const recipe = await ctx.service.recipe.find(_id)
@@ -27,7 +23,6 @@ class RecipeService extends Service {
     return ctx.model.Recipe.findByIdAndUpdate(_id, payload)
   }
 
-  // show======================================================================================================>
   async show(_id) {
     const recipe = await this.ctx.service.recipe.find(_id)
     if (!recipe) {
@@ -36,7 +31,6 @@ class RecipeService extends Service {
     return this.ctx.model.Recipe.findById(_id)
   }
 
-  // index======================================================================================================>
   async indexbyday(payload) {
     const { pageNo, pageSize, isPaging, search,day } = payload
     let res = []
@@ -51,15 +45,7 @@ class RecipeService extends Service {
         count = await this.ctx.model.Recipe.count({}).exec()
       }
     } else {
-      if(day) {
-        res = await this.ctx.model.Recipe.find({day: { $regex: day } }).sort({ createdAt: -1 }).exec()
-        count = res.length
-      } else {
-        res = await this.ctx.model.Recipe.find({}).sort({ createdAt: -1 }).exec()
-        count = await this.ctx.model.Recipe.count({}).exec()
-      }
     }
-    // 整理数据源 -> Ant Design Pro
     let data = res.map((e,i) => {
       const jsonObject = Object.assign({}, e._doc)
       jsonObject.key = i
@@ -83,15 +69,7 @@ class RecipeService extends Service {
         count = await this.ctx.model.Recipe.count({}).exec()
       }
     } else {
-      if(search) {
-        res = await this.ctx.model.Recipe.find({name: { $regex: search } }).sort({ createdAt: -1 }).exec()
-        count = res.length
-      } else {
-        res = await this.ctx.model.Recipe.find({}).sort({ createdAt: -1 }).exec()
-        count = await this.ctx.model.Recipe.count({}).exec()
-      }
     }
-    // 整理数据源 -> Ant Design Pro
     let data = res.map((e,i) => {
       const jsonObject = Object.assign({}, e._doc)
       jsonObject.key = i
@@ -102,12 +80,10 @@ class RecipeService extends Service {
     return { total: count, rows: data, pageSize: Number(pageSize), pageNo: Number(pageNo) }
   }
 
-  // removes======================================================================================================>
   async removes(values) {
     return this.ctx.model.Recipe.remove({ _id: { $in: values } })
   }
 
-  // Commons======================================================================================================>
   async find(id) {
     return this.ctx.model.Recipe.findById(id)
   }

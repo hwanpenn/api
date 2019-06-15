@@ -10,7 +10,6 @@ class UploadService extends Service {
     return this.ctx.model.Attachment.create(payload) 
   }
 
-  // destroy======================================================================================================>  
   async destroy(_id) {
     const { ctx, service } = this
     const attachment = await ctx.service.upload.find(_id)
@@ -23,7 +22,6 @@ class UploadService extends Service {
     return ctx.model.Attachment.findByIdAndRemove(_id)
   }
 
-  // update======================================================================================================>  
   async updatePre(_id) {
     const { ctx, service } = this
     const attachment = await ctx.service.upload.find(_id)
@@ -49,7 +47,6 @@ class UploadService extends Service {
     return this.ctx.model.Attachment.findByIdAndUpdate(_id, values)
   }
 
-  // show======================================================================================================>
   async show(_id) {
     const attachment = await this.ctx.service.upload.find(_id)
     if (!attachment) {
@@ -58,7 +55,6 @@ class UploadService extends Service {
     return this.ctx.model.Attachment.findById(_id)
   }
 
-  // index======================================================================================================>
   async index(payload) {
     // 支持全部all 无需传入kind
     // 图像kind = image ['.jpg', '.jpeg', '.png', '.gif']
@@ -95,24 +91,8 @@ class UploadService extends Service {
         }
       }
     } else {
-      if(search) {
-        if (kind) {
-          res = await this.ctx.model.Attachment.find({filename: { $regex: search }, extname: { $in: attachmentKind[`${kind}`]} }).sort({ createdAt: -1 }).exec()
-        }else{
-          res = await this.ctx.model.Attachment.find({filename: { $regex: search }}).sort({ createdAt: -1 }).exec()
-        }
-        count = res.length
-      } else {
-        if (kind) {
-          res = await this.ctx.model.Attachment.find({extname: { $in: attachmentKind[`${kind}`]} }).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.Attachment.count({ extname: { $in: attachmentKind[`${kind}`]} }).exec()
-        }else{
-          res = await this.ctx.model.Attachment.find({}).sort({ createdAt: -1 }).exec()
-          count = await this.ctx.model.Attachment.count({}).exec()
-        }
-      }
+     
     }
-    // 整理数据源 -> Ant Design Pro
     let data = res.map((e,i) => {
       const jsonObject = Object.assign({}, e._doc)
       jsonObject.key = i
@@ -123,7 +103,6 @@ class UploadService extends Service {
     return { count: count, list: data, pageSize: Number(pageSize), currentPage: Number(currentPage) }
   }
 
-  // Commons======================================================================================================>
   async find(id) {
     return this.ctx.model.Attachment.findById(id)
   }

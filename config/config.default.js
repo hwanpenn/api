@@ -7,7 +7,6 @@ module.exports = appInfo => {
      listen: {
        port: 7001,
        hostname: '0.0.0.0',
-       // path: '/var/run/egg.sock',
      }
    }
 
@@ -28,21 +27,15 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1513779989145_1674'
 
-  // add your config here
   // 加载 errorHandler 中间件
   config.middleware = [ 'errorHandler' ]
-
-  // 只对 /api 前缀的 url 路径生效
-  // config.errorHandler = {}
-  //   match: '/api',
-  // }
 
   config.multipart = {
     fileExtensions: [ '.apk', '.pptx', '.docx', '.csv', '.doc', '.ppt', '.pdf', '.pages', '.wav', '.mov' ], // 增加对 .apk 扩展名的支持
   },
 
   config.bcrypt = {
-    saltRounds: 10 // default 10
+    saltRounds: 10 
   }
 
   config.mongoose = {
@@ -50,7 +43,6 @@ module.exports = appInfo => {
     url: 'mongodb://f8fitnessusr:f8fitnesspwd@127.0.0.1:27017/f8fitnessdb?authSource=admin',
     // url: 'mongodb://root:10week@docker_mongodb:27017/10week-mongodb?authSource=admin',
     options: {
-      // useNewUrlParser:true,
       useMongoClient: true,
       autoReconnect: true,
       reconnectTries: Number.MAX_VALUE,
@@ -60,8 +52,8 @@ module.exports = appInfo => {
 
   config.jwt = {
     secret: 'Great4-M',
-    enable: true, // default is false
-    match: '/jwt', // optional
+    enable: true, 
+    match: '/jwt', 
   }
 
   config.security = {
@@ -69,7 +61,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: [ 'null','http://localhost:63343','http://localhost:3000','http://192.168.1.4:3000' ],
+    domainWhiteList: [ 'null','http://f8fitness.cn/','http://f8fitness.com.cn/' ],
   }
   config.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -77,9 +69,4 @@ module.exports = appInfo => {
 
   return config
 }
-// module.exports = appInfo => ({
-//   view: {
-//     // 如果还有其他模板引擎，需要合并多个目录
-//     root: path.join(appInfo.baseDir, 'app/assets'),
-//   },
-// })
+

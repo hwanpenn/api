@@ -1,17 +1,11 @@
 'use strict'
 
-/**
- * 云通信基础能力业务短信发送、查询详情以及消费消息示例，供参考。
- * Created on 2017-07-31
- */
-
 const Service = require('egg').Service
 
 class msgService extends Service {
   async getMsg(mobile) {
     let rnd=''
     if(mobile.substr(0, 2)==='04'){
-      console.log("burst手机号：------------------------------"+mobile)
       const SMSSDK = require('transmitsms-node-sdk').transmitsms
       let SMS = new SMSSDK()
 
@@ -27,10 +21,8 @@ class msgService extends Service {
 
       SMS.send(message).then(function fulfill(result){
         console.log(result)
-      //logic handle succes
       },function reject(result){
         console.log(result)
-      //logic to handle failure
       })
 
     }else{
